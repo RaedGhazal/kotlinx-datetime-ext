@@ -27,7 +27,7 @@ actual class LocalDateTimeFormatter private constructor(
      */
     actual fun format(localDateTime: LocalDateTime): String {
         val date = localDateTime.toNsDate()
-            ?: throw IllegalStateException("Failed to convert LocalDateTime $LocalDateTime to NSDate")
+            ?: throw IllegalStateException("Failed to convert $LocalDateTime to NSDate")
         return NSDateFormatter().apply {
             dateFormat = pattern
             locale = this@LocalDateTimeFormatter.locale.nsLocale

@@ -4,6 +4,7 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.time.Duration.Companion.hours
 
 class LocalDateTimeExtTest {
 
@@ -21,6 +22,16 @@ class LocalDateTimeExtTest {
         val expected = LocalDateTime(2023, 12, 17, 23, 59, 59, 999999999)
 
         assertEquals(expected, localDate)
+    }
+
+    @Test
+    fun `test durationUntil`() {
+        val firstDateTime = LocalDateTime(2023, 12, 12, 5, 0)
+        val secondDateTime = firstDateTime + 7.hours
+        val durationInSeconds = firstDateTime durationUntil secondDateTime
+        val expected = 7.hours
+
+        assertEquals(expected, durationInSeconds)
     }
 
 }
