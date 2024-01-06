@@ -17,12 +17,12 @@ fun LocalDateTime.Companion.now(timeZone: TimeZone = TimeZone.currentSystemDefau
     return Clock.System.now().toLocalDateTime(timeZone)
 }
 
-fun LocalDate.Companion.now(): LocalDate {
-    return LocalDateTime.now().date
+fun LocalDate.Companion.now(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalDate {
+    return LocalDateTime.now(timeZone).date
 }
 
-fun LocalTime.Companion.now(): LocalTime {
-    return LocalDateTime.now().time
+fun LocalTime.Companion.now(timeZone: TimeZone = TimeZone.currentSystemDefault()): LocalTime {
+    return LocalDateTime.now(timeZone).time
 }
 
 fun LocalDate.atStartOfDay(): LocalDateTime {
