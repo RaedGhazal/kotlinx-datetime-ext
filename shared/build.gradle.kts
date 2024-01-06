@@ -8,7 +8,7 @@ plugins {
 mavenPublishing {
     publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
     signAllPublications()
-    coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.0.0")
+    coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.0.1")
 
     pom {
         name.set("Kotlinx datetime ext")
@@ -44,6 +44,7 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
+        publishLibraryVariants("release", "debug")
     }
     iosX64()
     iosArm64()
