@@ -7,6 +7,14 @@ import kotlinx.datetime.minus
 import kotlinx.datetime.plus
 import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
+import kotlin.time.Duration
+
+operator fun LocalDateTime.plus(duration: Duration): LocalDateTime {
+    val timeZone = TimeZone.currentSystemDefault()
+    return this.toInstant(timeZone)
+        .plus(duration)
+        .toLocalDateTime(timeZone)
+}
 
 fun LocalDateTime.plus(value: Long, unit: DateTimeUnit.TimeBased): LocalDateTime {
     val timeZone = TimeZone.currentSystemDefault()
@@ -20,6 +28,13 @@ fun LocalDateTime.plus(dayValue: Long, dayUnit: DateTimeUnit.DayBased): LocalDat
     val unit = DateTimeUnit.HOUR
 
     return plus(value, unit)
+}
+
+operator fun LocalDateTime.minus(duration: Duration): LocalDateTime {
+    val timeZone = TimeZone.currentSystemDefault()
+    return this.toInstant(timeZone)
+        .minus(duration)
+        .toLocalDateTime(timeZone)
 }
 
 fun LocalDateTime.minus(value: Long, unit: DateTimeUnit.TimeBased): LocalDateTime {

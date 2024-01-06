@@ -24,7 +24,15 @@ if you're using it in commonMain and would like to access it from androidApp the
 
 ### 1. Math
 To add or subtract date or time to `LocalDateTime` object
+you can use operator functions `+` and `-` with duration values
+```kt
+val localDateTime = LocalDateTime(2023, 1, 7, 21, 0)
 
+val afterFiveDays = localDateTime + 5.days
+val beforeThreeHours = localDateTime - 3.hours
+```
+
+or using the overload function with DateTimeUnit
 ```kt
 val localDateTime = LocalDateTime(2023, 1, 7, 21, 0)
 

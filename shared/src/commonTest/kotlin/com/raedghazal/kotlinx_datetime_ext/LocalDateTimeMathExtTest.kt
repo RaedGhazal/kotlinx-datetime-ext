@@ -4,8 +4,25 @@ import kotlinx.datetime.DateTimeUnit
 import kotlinx.datetime.LocalDateTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.time.Duration.Companion.days
+import kotlin.time.Duration.Companion.hours
+import kotlin.time.Duration.Companion.minutes
 
 class LocalDateTimeMathExtTest {
+
+    @Test
+    fun `add hours and minutes as duration`() {
+        val localDateTime = LocalDateTime(2023, 1, 1, 0, 0)
+        val expected = LocalDateTime(2023, 1, 1, 7, 35)
+        assertEquals(expected, localDateTime + 35.minutes + 7.hours)
+    }
+
+    @Test
+    fun `minus days as duration`() {
+        val localDateTime = LocalDateTime(2023, 5, 14, 0, 0)
+        val expected = LocalDateTime(2023, 5, 7, 0, 0)
+        assertEquals(expected, localDateTime - 7.days)
+    }
 
     @Test
     fun `add 2 hours to start of the day`() {
