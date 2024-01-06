@@ -14,7 +14,7 @@ If you recently switched from **java.datetime** to **kotlinx.datetime** you prob
 
 ### Implementation
 ```kt
-implementation("com.raedghazal:kotlinx_datetime_ext:1.0.1")
+implementation("com.raedghazal:kotlinx_datetime_ext:1.0.2")
 ```
 if you're using it in commonMain and would like to access it from androidApp then use `api(...)` instead to expose it [more about the difference between implementation and api](https://stackoverflow.com/a/44419574/10834775)
 
