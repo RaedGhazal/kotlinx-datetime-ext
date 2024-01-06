@@ -62,15 +62,18 @@ also you can parse to any datetime object
 
 ### Helper extension functions
 
-To transform a LocalDate object to LocalDateTime you can use `atStartOfDay()` or `atEndOfDay()`
+To transform a LocalDate object to LocalDateTime you can use `atStartOfDay()` or `atEndOfDay()` similar to **java.datetime**
 
 ```kt
 val localDate = LocalDate(2023, 12, 17).atStartOfDay() //LocalDateTime(2023, 12, 17, 0, 0)
 val localDate = LocalDate(2023, 12, 17).atEndOfDay() // LocalDateTime(2023, 12, 17, 23, 59, 59, 999999999)
 ```
 
-The library also provides min time: `LocalTime.MIN`, max time: `LocalTime.MAX` and `.now` for quick access to those values
+To get the **min time**, **max time**, and **now**:
 ```kt
+LocalTime.MIN
+LocalTime.MAX
+
 LocalDateTime.now()
 LocalDate.now()
 LocalTime.now()
@@ -78,8 +81,12 @@ LocalTime.now()
 
 ** Note: `MAX` and `atEndOfDay()` value is inspired by what [java.datetime used to use](https://cs.android.com/android/platform/superproject/+/master:libcore/ojluni/src/main/java/java/time/LocalTime.java;drc=63ed7b354cbcc49d2f05037026921b59be49d342;l=128)
 
-More examples can be found in the [UnitTests directory](https://github.com/RaedGhazal/kotlinx-datetime-ext/tree/main/shared/src/commonTest/kotlin/com/raedghazal/kotlinx_datetime_ext)
+You can also get `Duration` between 2 `LocalDateTime` objects by using the infix function `durationUntil`
+```kt
+firstLocalDateTime durationUntil secondLocalDateTime
+```
 
+More examples can be found in the [UnitTests directory](https://github.com/RaedGhazal/kotlinx-datetime-ext/tree/main/shared/src/commonTest/kotlin/com/raedghazal/kotlinx_datetime_ext)
 
 ---
 Thank you for using the library, contributions are welcomed!  

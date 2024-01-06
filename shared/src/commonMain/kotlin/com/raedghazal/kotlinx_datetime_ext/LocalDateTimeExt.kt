@@ -33,12 +33,10 @@ fun LocalDate.atEndOfDay(): LocalDateTime {
     return LocalDateTime(this, LocalTime.MAX)
 }
 
-fun instantBetween(
-    start: LocalDateTime,
-    end: LocalDateTime,
-    timeZone: TimeZone = TimeZone.currentSystemDefault()
-): Duration {
-    if (end < start) throw IllegalArgumentException("end must be greater than start")
+infix fun LocalDateTime.durationUntil(end: LocalDateTime): Duration {
+    val timeZone = TimeZone.currentSystemDefault()
 
-    return end.toInstant(timeZone) - start.toInstant(timeZone)
+    if (end < this) throw IllegalArgumentException("end must be greater than start")
+
+    return end.toInstant(timeZone) - this.toInstant(timeZone)
 }
