@@ -48,6 +48,7 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
+    jvm("desktop")
 
     sourceSets {
         commonMain.dependencies {
@@ -63,7 +64,7 @@ android {
     namespace = "com.raedghazal.kotlinx_datetime_ext"
     compileSdk = 34
     defaultConfig {
-        minSdk = 23
+        minSdk = 26
     }
 }
 
