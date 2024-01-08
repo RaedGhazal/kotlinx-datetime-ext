@@ -10,6 +10,7 @@ If you recently switched from **java.datetime** to **kotlinx.datetime** you prob
 ### Supported platforms
 - Android
 - iOS
+- JVM (Desktop)
 
 
 ### Implementation
