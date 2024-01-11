@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
+
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
@@ -64,16 +67,43 @@ kotlin {
             }
         }
     }
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        useEsModules()
+        browser {
+            testTask {
+                useKarma {
+                    useChromeHeadless()
+                }
+            }
+        }
+        nodejs {
+            testTask {
+                useMocha()
+            }
+        }
+    }
 
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.kotlinx.datetime)
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.kotlinx.datetime)
+            }
         }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
         }
-        jsMain.dependencies {
-            implementation(npm("date-fns", libs.versions.date.fns.version.get()))
+        val jsMain by getting {
+            dependencies {
+                implementation(npm("date-fns", libs.versions.date.fns.version.get()))
+            }
+        }
+        val wasmJsMain by getting {
+            dependencies {
+                implementation(npm("date-fns", libs.versions.date.fns.version.get()))
+            }
         }
     }
 }
@@ -88,4 +118,13 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
+}
+
+rootProject.the<NodeJsRootExtension>().apply {
+    nodeVersion = "22.0.0-v8-canary20231201483993aba6"
+    nodeDownloadBaseUrl = "https://mirrors.dotsrc.org/nodejs/v8-canary"
+}
+
+rootProject.tasks.withType<org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask>().configureEach {
+    args.add("--ignore-engines")
 }
