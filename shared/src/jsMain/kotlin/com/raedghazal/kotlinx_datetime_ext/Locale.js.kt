@@ -5,7 +5,7 @@ import kotlinx.browser.window
 actual class Locale private constructor(val dateFnsLocale: DateFnsLocale) {
     actual companion object {
 
-        internal val platformLocales = mutableMapOf<String, DateFnsLocale>()
+        internal var platformLocales: Map<String, DateFnsLocale> = emptyMap()
 
         actual fun default(): Locale {
             val language = window.navigator.language
@@ -29,9 +29,9 @@ actual class Locale private constructor(val dateFnsLocale: DateFnsLocale) {
  * Used to allow choosing the locales added to the final application bundle.
  */
 fun Locale.Companion.initPlatformLocales(vararg platformLocale: Any) {
-    for (locale in platformLocale) {
-        keys(locale).forEach { key ->
-            platformLocales[key] = locale.asDynamic()[key].unsafeCast<DateFnsLocale>()
+    platformLocales = platformLocale.flatMap {
+        keys(it).map { key ->
+            key to it.asDynamic()[key].unsafeCast<DateFnsLocale>()
         }
-    }
+    }.toMap()
 }
