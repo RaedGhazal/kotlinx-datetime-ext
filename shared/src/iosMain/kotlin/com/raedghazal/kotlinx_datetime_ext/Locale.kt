@@ -16,9 +16,5 @@ actual class Locale private constructor(val nsLocale: NSLocale) {
         actual fun forLanguageTag(languageTag: String): Locale {
             return Locale(NSLocale(languageTag))
         }
-
-        actual fun initPlatformLocales(vararg platformLocale: Any) {
-            // not used on this platform
-        }
     }
 }
