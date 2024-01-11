@@ -88,6 +88,11 @@ class LocalDateTimeFormatterTest {
     }
 
     companion object {
+
+        init {
+            initPlatformLocales()
+        }
+
         val SqlDateTimeFormatter =
             LocalDateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.en())
         val FullDateTimeFormatter: LocalDateTimeFormatter = LocalDateTimeFormatter
@@ -102,3 +107,5 @@ class LocalDateTimeFormatterTest {
             .ofPattern("EEE, d MMM yyyy HH:mm:ss", Locale.forLanguageTag("pl-PL"))
     }
 }
+
+expect fun initPlatformLocales()

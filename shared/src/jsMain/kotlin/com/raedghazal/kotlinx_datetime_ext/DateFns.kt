@@ -18,5 +18,5 @@ external object DateFns {
     fun parse(dateStr: String, pattern: String, baseDate: Date, options: ParseOptions = definedExternally): Date
 }
 
-@JsModule("date-fns/locale")
-external object DateFnsLocales
+@JsModule("date-fns/locale/en-US")
+external object DateFnsLocaleEnUS

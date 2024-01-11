@@ -14,5 +14,9 @@ actual class Locale private constructor(val javaLocale: java.util.Locale) {
         actual fun forLanguageTag(languageTag: String): Locale {
             return Locale(java.util.Locale.forLanguageTag(languageTag))
         }
+
+        actual fun initPlatformLocales(vararg platformLocale: Any) {
+            // not used on this platform
+        }
     }
 }
