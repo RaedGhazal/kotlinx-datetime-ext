@@ -11,6 +11,7 @@ If you recently switched from **java.datetime** to **kotlinx.datetime** you prob
 - Android
 - iOS
 - JVM (Desktop)
+- Js & WasmJs
 
 
 ### Implementation
@@ -20,9 +21,32 @@ implementation("com.raedghazal:kotlinx_datetime_ext:1.1.0")
 if you're using it in commonMain and would like to access it from androidApp then use `api(...)` instead to expose it [more about the difference between implementation and api](https://stackoverflow.com/a/44419574/10834775)
 
 
+### Initialization (JS only)
+No Initialization is needed, except if you're targeting JS or WasmJS, call `Locale.initPlatformLocales(...)` in your JS module to setup all the locales you're supporting, default is English Locale only
+
+#### examples:
+1. to support specific Locales
+```kt
+@JsModule("date-fns/locale/pl")
+external object DateFnsLocalePl
+
+@JsModule("date-fns/locale/it")
+external object DateFnsLocaleIt
+
+Locale.initPlatformLocales(DateFnsLocalePl, DateFnsLocaleIt) // support "pl" and "it" locales
+```
+2. to support all Locales
+```kt
+@JsModule("date-fns/locale")
+external object DateFnsLocales
+
+Locale.initPlatformLocales(DateFnsLocales) // support all locales 
+```
+
+**This function is only available in the JS module, won't appear in `commonMain`*
+
 
 ## Usage
-
 
 ### 1. Math
 To add or subtract date or time to `LocalDateTime` object
@@ -66,8 +90,8 @@ val localDateTime = formatter.parseToLocalDateTime("2023-01-01 01:01:00") // Loc
 also you can parse to any datetime object
 ```kt
     fun parseToLocalDateTime(str: String): LocalDateTime
-    fun parseToLocalDate(str: String): LocalDate
-    fun parseToLocalTime(str: String): LocalTime
+fun parseToLocalDate(str: String): LocalDate
+fun parseToLocalTime(str: String): LocalTime
 ```
 
 ### Helper extension functions
