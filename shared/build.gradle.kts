@@ -7,7 +7,7 @@ plugins {
 mavenPublishing {
     publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
     signAllPublications()
-    coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.0.2")
+    coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.1.0")
 
     pom {
         name.set("Kotlinx datetime ext")
