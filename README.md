@@ -4,7 +4,7 @@
 # kotlinx-datetime-ext
 **A Kotlin Multiplatform library that provides `kotlinx-datetime` extensions and helper functions.**
 
-If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**, you've probably noticed that it's missing a lot of functionality that has to be implemented manually. This library comes to close the gap by providing most of **java.time**'s functionalities but in Kotlin!
+If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**, you've probably noticed that it's missing a lot of functionality that has to be implemented manually. This library comes to close the gap by providing most of `java.time`'s functionalities but in Kotlin!
 
 
 ### Supported platforms
