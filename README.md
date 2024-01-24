@@ -16,7 +16,7 @@ If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**,
 
 ### Implementation
 ```kt
-implementation("com.raedghazal:kotlinx_datetime_ext:1.1.0")
+implementation("com.raedghazal:kotlinx_datetime_ext:1.2.0")
 ```
 If you're using it in `commonMain` and want to access it from `androidApp`, then use `api(...)` instead to expose it. [More about the difference between `implementation` and `api`](https://stackoverflow.com/a/44419574/10834775).
 
