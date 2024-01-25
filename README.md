@@ -11,18 +11,42 @@ If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**,
 - Android
 - iOS
 - JVM (Desktop)
+- Js & WasmJs
 
 
 ### Implementation
 ```kt
-implementation("com.raedghazal:kotlinx_datetime_ext:1.1.0")
+implementation("com.raedghazal:kotlinx_datetime_ext:1.2.0")
 ```
 If you're using it in `commonMain` and want to access it from `androidApp`, then use `api(...)` instead to expose it. [More about the difference between `implementation` and `api`](https://stackoverflow.com/a/44419574/10834775).
 
 
+### Initialization (JS only)
+No Initialization is needed, except if you're targeting JS or WasmJS, call `Locale.initPlatformLocales(...)` in your JS module to setup all the locales you're supporting, default is English Locale only
+
+#### examples:
+1. To support specific Locales
+```kt
+@JsModule("date-fns/locale/pl")
+external object DateFnsLocalePl
+
+@JsModule("date-fns/locale/it")
+external object DateFnsLocaleIt
+
+Locale.initPlatformLocales(DateFnsLocalePl, DateFnsLocaleIt) // support "pl" and "it" locales
+```
+2. To support all Locales
+```kt
+@JsModule("date-fns/locale")
+external object DateFnsLocales
+
+Locale.initPlatformLocales(DateFnsLocales) // support all locales 
+```
+
+**This function is only available in the JS module, and it will not be accessible in `commonMain`* .
+
 
 ## Usage
-
 
 ### 1. Math
 Add or subtract date or time to a `LocalDateTime`
