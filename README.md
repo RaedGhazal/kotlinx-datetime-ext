@@ -1,6 +1,6 @@
 [![Download](https://img.shields.io/maven-central/v/com.raedghazal/kotlinx_datetime_ext)](https://repo1.maven.org/maven2/com/raedghazal/kotlinx_datetime_ext)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.9.21-blue.svg?logo=kotlin)](http://kotlinlang.org)
-[![Kotlinx-DateTime](https://img.shields.io/badge/kotlinx--datetime-0.5.0-blue)](https://github.com/Kotlin/kotlinx-datetime)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.9.22-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlinx-DateTime](https://img.shields.io/badge/kotlinx--datetime-0.6.1-blue)](https://github.com/Kotlin/kotlinx-datetime)
 # kotlinx-datetime-ext
 **A Kotlin Multiplatform library that provides `kotlinx-datetime` extensions and helper functions.**
 
@@ -16,7 +16,7 @@ If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**,
 
 ### Implementation
 ```kt
-implementation("com.raedghazal:kotlinx_datetime_ext:1.2.0")
+implementation("com.raedghazal:kotlinx_datetime_ext:1.3.1")
 ```
 If you're using it in `commonMain` and want to access it from `androidApp`, then use `api(...)` instead to expose it. [More about the difference between `implementation` and `api`](https://stackoverflow.com/a/44419574/10834775).
 
