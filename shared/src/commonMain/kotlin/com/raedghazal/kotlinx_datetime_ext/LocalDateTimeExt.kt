@@ -47,7 +47,5 @@ fun LocalDate.atEndOfDay(timeZone: TimeZone = TimeZone.currentSystemDefault()): 
 infix fun LocalDateTime.durationUntil(end: LocalDateTime): Duration {
     val timeZone = TimeZone.currentSystemDefault()
 
-    if (end < this) throw IllegalArgumentException("end must be greater than start")
-
     return end.toInstant(timeZone) - this.toInstant(timeZone)
 }
