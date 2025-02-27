@@ -10,13 +10,13 @@ plugins {
 mavenPublishing {
     publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
     signAllPublications()
-    coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.3.1")
+    coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.3.2")
 
     pom {
         name.set("Kotlinx datetime ext")
-        description.set("A KMM library that provides extensions and helper functions for kotlinx-datetime ")
+        description.set("A KMP library that provides extensions and helper functions for kotlinx-datetime ")
         inceptionYear.set("2023")
-        url.set("https://github.com/RaedGhazal/kmm-kotlinx-datetime-ext")
+        url.set("https://github.com/RaedGhazal/kotlinx-datetime-ext")
         developers {
             developer {
                 id.set("RaedGhazal")
@@ -33,8 +33,8 @@ mavenPublishing {
         }
         scm {
             url.set("https://github.com/RaedGhazal")
-            connection.set("scm:git:git://github.com/RaedGhazal/kmm-kotlinx-datetime-ext.git")
-            developerConnection.set("scm:git:ssh://git@github.com/RaedGhazal/kmm-kotlinx-datetime-ext.git")
+            connection.set("scm:git:git://github.com/RaedGhazal/kotlinx-datetime-ext.git")
+            developerConnection.set("scm:git:ssh://git@github.com/RaedGhazal/kotlinx-datetime-ext.git")
         }
     }
 }

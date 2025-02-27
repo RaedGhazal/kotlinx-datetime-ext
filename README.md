@@ -10,6 +10,9 @@
 If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**, you've probably noticed that it's missing a lot of functionality that has to be implemented manually. This library comes to close the gap by providing most of `java.time`'s functionalities but in Kotlin!
 
 
+### Minimum SDk
+- minSdk is 26
+
 ### Supported platforms
 - Android
 - iOS
@@ -19,7 +22,7 @@ If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**,
 
 ### Implementation
 ```kt
-implementation("com.raedghazal:kotlinx_datetime_ext:1.3.1")
+implementation("com.raedghazal:kotlinx_datetime_ext:1.3.2")
 ```
 If you're using it in `commonMain` and want to access it from `androidApp`, then use `api(...)` instead to expose it. [More about the difference between `implementation` and `api`](https://stackoverflow.com/a/44419574/10834775).
 
