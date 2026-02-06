@@ -1,6 +1,6 @@
 [versions]
 agp = "8.13.1"
-coreKtx = "1.13.1"
+coreKtx = "1.17.0"
 kotlin = "2.1.20"
 maven-publish-version = "0.29.0"
 kotlinx-datetime-version = "0.6.1"
