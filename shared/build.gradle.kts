@@ -8,7 +8,7 @@ plugins {
 }
 
 mavenPublishing {
-    publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
+    publishToMavenCentral()
     signAllPublications()
     coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.3.2")
 
@@ -110,7 +110,7 @@ kotlin {
 
 android {
     namespace = "com.raedghazal.kotlinx_datetime_ext"
-    compileSdk = 34
+    compileSdk = 36
     defaultConfig {
         minSdk = 26
     }

@@ -3,7 +3,7 @@ agp = "8.13.1"
 coreKtx = "1.17.0"
 kotlin = "2.3.0"
 kotlinxBrowser = "0.5.0"
-maven-publish-version = "0.29.0"
+maven-publish-version = "0.36.0"
 kotlinx-datetime-version = "0.7.1"
 date-fns-version = "4.1.0"
 
