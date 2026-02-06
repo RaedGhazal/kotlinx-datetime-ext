@@ -1,6 +1,6 @@
 package com.raedghazal.kotlinx_datetime_ext
 
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.LocalTime
