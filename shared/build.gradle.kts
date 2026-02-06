@@ -1,5 +1,5 @@
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -95,11 +95,13 @@ kotlin {
         }
         val jsMain by getting {
             dependencies {
+                implementation(libs.kotlinx.browser)
                 implementation(npm("date-fns", libs.versions.date.fns.version.get()))
             }
         }
         val wasmJsMain by getting {
             dependencies {
+                implementation(libs.kotlinx.browser)
                 implementation(npm("date-fns", libs.versions.date.fns.version.get()))
             }
         }
@@ -118,9 +120,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
 }
 
-rootProject.the<NodeJsRootExtension>().apply {
-    nodeVersion = "22.0.0-v8-canary202401102ecfc94f85"
-    nodeDownloadBaseUrl = "https://mirrors.dotsrc.org/nodejs/v8-canary"
+rootProject.the<NodeJsEnvSpec>().apply {
+    version = "22.0.0-v8-canary202401102ecfc94f85"
+    downloadBaseUrl = "https://mirrors.dotsrc.org/nodejs/v8-canary"
 }
 
 rootProject.tasks.withType<org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask>().configureEach {

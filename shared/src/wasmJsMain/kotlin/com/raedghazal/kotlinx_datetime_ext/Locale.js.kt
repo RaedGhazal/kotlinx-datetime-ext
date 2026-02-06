@@ -12,6 +12,7 @@ actual class Locale private constructor(val dateFnsLocale: DateFnsLocale) {
             return forLanguageTag(language)
         }
 
+        @OptIn(ExperimentalWasmJsInterop::class)
         actual fun en(): Locale {
             return Locale(DateFnsLocaleEnUS["enUS"]!!.unsafeCast())
         }
@@ -28,6 +29,7 @@ actual class Locale private constructor(val dateFnsLocale: DateFnsLocale) {
  * Initialize the library with external platform locale data.
  * Used to allow choosing the locales added to the final application bundle.
  */
+@OptIn(ExperimentalWasmJsInterop::class)
 fun Locale.Companion.initPlatformLocales(vararg platformLocale: JsAny) {
     platformLocales = platformLocale.flatMap {
         keys(it).map { key ->
