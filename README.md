@@ -1,6 +1,6 @@
 [![Download](https://img.shields.io/maven-central/v/com.raedghazal/kotlinx_datetime_ext)](https://repo1.maven.org/maven2/com/raedghazal/kotlinx_datetime_ext)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.9.22-blue.svg?logo=kotlin)](http://kotlinlang.org)
-[![Kotlinx-DateTime](https://img.shields.io/badge/kotlinx--datetime-0.6.1-blue)](https://github.com/Kotlin/kotlinx-datetime)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.3.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlinx-DateTime](https://img.shields.io/badge/kotlinx--datetime-0.7.1-blue)](https://github.com/Kotlin/kotlinx-datetime)
 
 * Show support by a starring the repo ⭐️
 
@@ -9,6 +9,8 @@
 
 If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**, you've probably noticed that it's missing a lot of functionality that has to be implemented manually. This library comes to close the gap by providing most of `java.time`'s functionalities but in Kotlin!
 
+### NEW
+Version 1.4.0 now supports the new `kotlin.time` and `kotlinx.datetime 0.7.1` changes
 
 ### Minimum SDk
 - minSdk is 26
@@ -22,7 +24,7 @@ If you've recently switched from **`java.time`** APIs to **`kotlinx-datetime`**,
 
 ### Implementation
 ```kt
-implementation("com.raedghazal:kotlinx_datetime_ext:1.3.2")
+implementation("com.raedghazal:kotlinx_datetime_ext:1.4.0")
 ```
 If you're using it in `commonMain` and want to access it from `androidApp`, then use `api(...)` instead to expose it. [More about the difference between `implementation` and `api`](https://stackoverflow.com/a/44419574/10834775).
 

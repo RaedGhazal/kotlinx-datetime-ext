@@ -10,7 +10,7 @@ plugins {
 mavenPublishing {
     publishToMavenCentral()
     signAllPublications()
-    coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.3.2")
+    coordinates("com.raedghazal", "kotlinx_datetime_ext", "1.4.0")
 
     pom {
         name.set("Kotlinx datetime ext")
@@ -128,3 +128,9 @@ rootProject.the<NodeJsEnvSpec>().apply {
 rootProject.tasks.withType<org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask>().configureEach {
     args.add("--ignore-engines")
 }
+
+/*
+* How to publish a new version:
+* * increase library verion
+* * run ./gradlew publishAndReleaseToMavenCentral
+*  */
