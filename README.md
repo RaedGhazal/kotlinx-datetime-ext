@@ -23,7 +23,7 @@ Version 1.4.0 now supports the new `kotlin.time` and `kotlinx.datetime 0.7.1` ch
 
 
 ### Implementation
-```kt
+```kotlin
 implementation("com.raedghazal:kotlinx_datetime_ext:1.4.0")
 ```
 If you're using it in `commonMain` and want to access it from `androidApp`, then use `api(...)` instead to expose it. [More about the difference between `implementation` and `api`](https://stackoverflow.com/a/44419574/10834775).
@@ -34,7 +34,7 @@ No Initialization is needed, except if you're targeting JS or WasmJS, call `Loca
 
 #### examples:
 1. To support specific Locales
-```kt
+```kotlin
 @JsModule("date-fns/locale/pl")
 external object DateFnsLocalePl
 
@@ -44,7 +44,7 @@ external object DateFnsLocaleIt
 Locale.initPlatformLocales(DateFnsLocalePl, DateFnsLocaleIt) // support "pl" and "it" locales
 ```
 2. To support all Locales
-```kt
+```kotlin
 @JsModule("date-fns/locale")
 external object DateFnsLocales
 
@@ -59,7 +59,7 @@ Locale.initPlatformLocales(DateFnsLocales) // support all locales
 ### 1. Math
 Add or subtract date or time to a `LocalDateTime`
 using operator functions `+` and `-` with duration values:
-```kt
+```kotlin
 val localDateTime = LocalDateTime(2023, 1, 7, 21, 0)
 
 val afterFiveDays = localDateTime + 5.days
@@ -67,7 +67,7 @@ val beforeThreeHours = localDateTime - 3.hours
 ```
 
 Or using the `DateTimeUnit` overload:
-```kt
+```kotlin
 val localDateTime = LocalDateTime(2023, 1, 7, 21, 0)
 
 val afterFiveDays = localDateTime.plus(5, DateTimeUnit.DAY)
@@ -77,26 +77,26 @@ val beforeThreeHours = localDateTime.minus(3, DateTimeUnit.HOUR)
 ### 2. Parsing & Formatting
 #### Formatting to String
 
-```kt
+```kotlin
 val localDateTime = LocalDateTime(2023, 1, 1, 1, 1)
 val formatter = LocalDateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm", Locale.en())
 
 print(formatter.format(localDateTime)) //"01/01/2023 - 01:01"
 ```
 There are overloads for all date/time objects:
-```kt
+```kotlin
 fun format(localDateTime: LocalDateTime): String
 fun format(localTime: LocalTime): String
 fun format(localDate: LocalDate): String
 ```
 
 #### Parsing from String
-```kt
+```kotlin
 val formatter = LocalDateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.en())
 val localDateTime = formatter.parseToLocalDateTime("2023-01-01 01:01:00") // LocalDateTime(2023, 1, 1, 1, 1)
 ```
 You can also parse to any date/time object
-```kt
+```kotlin
 fun parseToLocalDateTime(str: String): LocalDateTime
 fun parseToLocalDate(str: String): LocalDate
 fun parseToLocalTime(str: String): LocalTime
@@ -105,26 +105,26 @@ fun parseToLocalTime(str: String): LocalTime
 ### Helper extension functions
 
 Transform a `LocalDate` to a `LocalDateTime`, you can use `atStartOfDay()` or `atEndOfDay()`, similar to **java.time**:
-```kt
+```kotlin
 val localDate = LocalDate(2023, 12, 17).atStartOfDay() //LocalDateTime(2023, 12, 17, 0, 0)
 val localDate = LocalDate(2023, 12, 17).atEndOfDay() // LocalDateTime(2023, 12, 17, 23, 59, 59, 999999999)
 ```
 
 Get the current date/time:
-```kt
+```kotlin
 LocalDateTime.now()
 LocalDate.now()
 LocalTime.now()
 ```
 
 Get minimum/maximum time:
-```kt
+```kotlin
 LocalTime.MIN
 LocalTime.MAX
 ```
 
 Get the `Duration` between two `LocalDateTime` objects using the `durationUntil` infix function:
-```kt
+```kotlin
 firstLocalDateTime durationUntil secondLocalDateTime
 ```
 
