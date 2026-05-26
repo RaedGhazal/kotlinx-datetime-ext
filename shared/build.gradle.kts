@@ -42,7 +42,7 @@ mavenPublishing {
 kotlin {
     androidTarget {
         compilerOptions {
-            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8
+            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(libs.versions.jvm.version.get())
         }
         publishLibraryVariants("release", "debug")
     }
