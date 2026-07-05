@@ -1,0 +1,11 @@
+changelog:
+  categories:
+    - title: ✨ Enhancements
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 🔨 Dependencies
+      labels:
+        - dependencies
